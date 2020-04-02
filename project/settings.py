@@ -19,7 +19,10 @@ import environ
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Integrating project with os environment
-env = environ.Env(DEBUG=(bool, False))
+env = environ.Env(
+    DEBUG=(bool, False),
+    DEBUG_TOOLBAR=(bool,False)
+    )
 env_file = os.path.join(BASE_DIR,'.env')
 environ.Env.read_env(env_file)
 
@@ -32,6 +35,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
+DEBUG_TOOLBAR = env("DEBUG_TOOLBAR")
 
 ALLOWED_HOSTS = []
 
@@ -56,6 +60,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Adding DEBUG-TOOLBAR configurations
+if(DEBUG and DEBUG_TOOLBAR):
+    INSTALLED_APPS.append('debug_toolbar')  # ENABLE THIS ONLY IN DEBUG MODE.
+    MIDDLEWARE.insert(0,'debug_toolbar.middleware.DebugToolbarMiddleware')
+    INTERNAL_IPS = ["127.0.0.1"]
+
 
 ROOT_URLCONF = 'project.urls'
 
