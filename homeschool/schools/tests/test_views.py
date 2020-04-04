@@ -1,14 +1,14 @@
 # homeschool/schools/tests/test_views.py
 from django.test import Client, TestCase
 from django.urls import reverse
-#from homeschool.users.tests.factories import UserFactory
+from homeschool.users.tests.factories import UserFactory
 
 
 class TestApp(TestCase):
     def test_ok(self):
         """The app returns 200 OK for a user."""
         client = Client()
-        #user = UserFactory()
+        user = UserFactory()
         client.force_login(user)
 
         response = client.get(reverse("app"))
