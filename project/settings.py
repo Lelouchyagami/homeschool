@@ -136,7 +136,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 AUTH_USER_MODEL = "users.User" 
-LOGIN_REDIRECT_URL = 'app'
+LOGIN_REDIRECT_URL = 'core:app'
 
 
 # Internationalization
@@ -166,7 +166,7 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_LOGOUT_REDIRECT_URL = 'app'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'core:index'
 
 
 django_heroku.settings(locals())
