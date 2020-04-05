@@ -1,5 +1,4 @@
 """project URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
 Examples:
@@ -15,18 +14,16 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path,include
-from homeschool.schools.views import app
+from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/',include('allauth.urls')),
-    path('app/',app,name='app')
+    path("", include("homeschool.core.urls")),
+    path("office/", admin.site.urls),
+    path("accounts/", include("allauth.urls")),
 ]
 
+# Enable the debug toolbar only in DEBUG mode.
 if settings.DEBUG and settings.DEBUG_TOOLBAR:
     import debug_toolbar
-    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-    urlpatterns = [path('__debug__/', include(debug_toolbar.urls))] + urlpatterns 
-    urlpatterns += staticfiles_urlpatterns()
+
+    urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
