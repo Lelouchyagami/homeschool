@@ -58,7 +58,8 @@ INSTALLED_APPS = [
 
 
     #local
-    'homeschool.users'
+    'homeschool.users',
+    'homeschool.schools'
 ]
 
 MIDDLEWARE = [
