@@ -22,3 +22,5 @@ class GradeLevel(models.Model):
 	name = models.CharField(max_length=128)
 	school_year = models.ForeignKey("schools.SchoolYear", on_delete=models.CASCADE)
 
+	def __str__(self):
+		return self.name
