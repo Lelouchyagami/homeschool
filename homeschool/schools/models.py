@@ -19,5 +19,6 @@ class SchoolYear(models.Model):
 
 class GradeLevel(models.Model):
 	""" A student is in a Grade Level in a school """
+	name = models.CharField(max_length=128)
 	school_year = models.ForeignKey("schools.SchoolYear", on_delete=models.CASCADE)
 

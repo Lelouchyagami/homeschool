@@ -21,5 +21,6 @@ class SchoolYearFactory(factory.django.DjangoModelFactory):
 class GradeLevelFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = "schools.GradeLevel"
-
+    
+    name = factory.Sequence(lambda n: f"{n} Grade")
     school_year = factory.SubFactory(SchoolYearFactory)

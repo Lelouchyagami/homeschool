@@ -40,6 +40,12 @@ class TestGradeLevel(TestCase):
 
         self.assertIsNotNone(grade_level)
 
+    def test_has_name(self):
+        name = "Kindergarten"
+        grade_level = GradeLevelFactory(name=name)
+
+        self.assertEqual(grade_level.name, name)
+        
     def test_has_school_year(self):
         school_year = SchoolYearFactory()
         grade_level = GradeLevelFactory(school_year=school_year)
