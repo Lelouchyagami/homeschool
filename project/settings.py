@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "django_extensions",
+    
 
     #third party
     "allauth",
@@ -124,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 AUTH_USER_MODEL = "users.User"
-LOGIN_REDIRECT_URL = "app"
+LOGIN_REDIRECT_URL = "core:app"
 
 
 # Internationalization
@@ -155,7 +157,7 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_LOGOUT_REDIRECT_URL = "app"
+ACCOUNT_LOGOUT_REDIRECT_URL = "core:index"
 
 # django-waffle
 WAFFLE_FLAG_MODEL = "core.Flag"
