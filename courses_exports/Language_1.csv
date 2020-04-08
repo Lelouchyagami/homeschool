@@ -1,0 +1,7 @@
+Course: Language_1
+Name,Description,Type,CreditUnit,Duration,StartDate,EndDate,GradingScale,SubjectId,CourseGroupId,PercentWeight,FieldWorkWeight,TestWeight,QuizWeight,WorkBookWeight,PracticalTestWeight,ReportWeight,OtherWeight,OralTestWeight,ExamWeight
+Language_1,,Core,0.0,60,08/26/2019,08/25/2020,A, B, C, D, F,English,,,5.0,20.0,10.0,5.0,10.0,5.0,5.0,10.0,30.0
+
+Activities and Tests: 
+Sequence,CompletionDate,Duration,Description,Type,Score,Remarks
+1,,60,Reading,Regular,,

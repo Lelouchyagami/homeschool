@@ -1,0 +1,9 @@
+Course: Science
+Name,Description,Type,CreditUnit,Duration,StartDate,EndDate,GradingScale,SubjectId,CourseGroupId,PercentWeight,FieldWorkWeight,TestWeight,QuizWeight,WorkBookWeight,PracticalTestWeight,ReportWeight,OtherWeight,OralTestWeight,ExamWeight
+Science,,Core,0.0,60,08/26/2019,08/25/2020,A, B, C, D, F,Science,,,5.0,20.0,10.0,5.0,10.0,5.0,5.0,10.0,30.0
+
+Activities and Tests: 
+Sequence,CompletionDate,Duration,Description,Type,Score,Remarks
+1,,60,Pyhsics,Regular,,
+2,,60,Biology,Regular,,
+3,,60,Chemistry,Regular,,

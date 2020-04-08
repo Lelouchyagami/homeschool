@@ -1,0 +1,1587 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""DTD/xhtml1-transitional.dtd">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+
+
+
+
+
+
+
+
+
+
+<!-- v01-04-01/2019-09-28 --> 
+<head>
+<title>Homeschool Skedtrack - Courses - Downloads</title>
+<meta name ="description"
+    content= "Homeschool Skedtrack is an online lesson planner, scheduler, and tracking system."/>
+<link rel="shortcut icon" href="theme/images/favicon.ico" type="image/x-icon" />    
+<script type="text/javascript">
+// Fix for the flicker that happens in IE6
+try {
+  document.execCommand("BackgroundImageCache", false, true);
+} catch(err) {}
+</script> 
+
+<!--  Local Style -->
+<!--  20 Sept 13 RBT: Replacing reference to css because Google Chrome intermittently fails to load css -->
+<!--  
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/HomeSchool/theme/css/homeschool-green-2009-05-06.css" />
+-->
+<style type="text/css">
+body {
+    width: 100%;    
+    margin: 0;
+    padding: 0;
+    line-height: 1.4em; 	
+	font-size: small;
+	font-family: Verdana;
+}
+/* Simplified Box Model Hack to make IE5 work */
+* html body {
+	font-size: x-small; /* for IE5/Win */;
+	f\ont-size: small; /* for other ID versionis */
+}
+
+a:link, a:visited {
+	color: #003399
+}
+
+pre {
+    font-size: 100%;
+}
+
+textarea {
+	font-size: 14px;
+	font-family: sans-serif;
+	behavior: url(theme/css/textarea.htc);
+}
+
+/****************** Wrap ALL ************************/
+/** Place this here for IE<7 or else in the body would have worked **/
+div#wrap-all {
+    min-width: 990px;
+    /* IE Dynamic Expression to set the width */
+    width:expression(document.body.clientWidth < 995? "990px": "auto" );   /* IE<7 */ 
+}
+
+/****************** Content Wrapper *****************/
+div#content-wrap {
+    background: url('theme/images/middle_and_right_bar.gif') repeat-y right top;				
+}
+div#inner-content-wrap {
+	background: url('theme/images/left_nav3.gif') repeat-y left top;
+}
+/****************** Header *****************/
+ul#header {   
+    width: 100%;
+	float: left;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: #BBFBBC url('theme/images/header.gif') repeat-x left top;
+}
+/****************** Header Right *****************/
+li#right-header {
+	float: right;
+}
+li#right-header ul {
+	list-style: none;
+	margin: 0;
+}
+/****************** Help logout *****************/
+li#help-logout {	
+	float: left;
+	margin: 0;
+}
+li#help-logout ul {
+	float: left;
+	list-style: none;
+	padding-right: 15px;
+}
+li#help-logout li {
+	float: left;
+	list-style: none;
+}
+li#help-logout a {
+	padding: 7px;
+	color: #95D999;
+	font-size: 80%;
+}
+li#help-logout a:hover {
+	color: white;
+}
+/****************** Context *****************/
+li#context {
+	padding: 0px 20px 5px 0;
+	position: relative;
+	float: left;
+	margin: 0;
+	font-size: 80%;
+	font-weight: bold;
+}
+li#context ul {
+	list-style: none;
+}
+span#year-name {
+    color: white;
+    font-size:120%;
+}
+/****************** Application Name and Tagline *****************/
+li#application-name {
+	background: url('theme/images/skedtrack.png') no-repeat 10px 5px ; 
+	padding: 22px 0 5px 45px;
+	font-size: 200%;
+	font-weight: bolder;
+	color: white;
+	min-width: 400px;
+	white-space: nowrap;
+}
+
+span#trademark{
+    font-size: 30%;
+    position:relative;
+    top: -17px; 
+    left: -3px;
+}
+
+li#application-name a:link, li#application-name a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+/** For IE<7, the filter does not work with IE6 **/
+* html body li#application-name {
+    background: url('theme/images/skedtrack-ie6.png') no-repeat 10px 5px ;
+    /** filter:progid:DXImageTransform.Microsoft.AlphaImageLoader (src='theme/images/skedtrack.png'); **/ 
+}
+
+li#tagline {
+	font-size: 80%;
+	padding-left: 15%;
+	font-style: italic;
+	font-weight: bold;
+	white-space: nowrap;
+}
+li#tagline a:link, li#tagline a:visited {
+    text-decoration: none;
+    color: black;
+}
+/****************** Menu *****************/
+ul#menu {
+	float: right;
+	width: 100%;
+	margin: 0;
+    padding: 0; /* Add this for Safari */	
+	list-style: none;
+	background: white url('theme/images/menu_divider.gif') repeat-x left bottom;
+}
+ul#menu li {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+ul#menu a {
+	float: left;
+	display: block;
+	margin: 5px 2px 0px 0;
+	padding: 2px 15px;
+	color: white;
+	text-decoration: none;
+	border: 1px solid #56A261;
+	border-bottom: none;
+	background: #499655;
+	font-size: 90%;
+	font-weight: bold;
+}
+ul#menu li#switch-user {
+	float:left;
+	padding-left: 10px;
+}
+ul#menu li#switch-user a {
+	border: none;
+	padding-left: 20px;
+	background: url('theme/images/next.gif') no-repeat left 3px ;
+	color: black;
+	font-weight: bold;
+	font-size: 80%;
+	text-decoration:underline;
+}
+
+ul#menu li#welcome {
+	float:left;
+	margin-left: 80px;
+	margin-top: 5px;
+	font-weight: bold;
+	color: #0F6321;
+}
+
+ul#menu a:hover {
+	background: #76BE7D;
+	color: #1F712F;
+}
+ul#menu #tab-on-menu a {
+	color: #333;
+	padding-bottom: 2px;
+	border-color: #727377;
+	background: #FFFF99;
+}
+/****************** Sub-Menu *****************/
+ul#submenu {
+	float: right;
+	margin: 0;
+	padding: 0; /* Add this for Safari */	
+	width: 100%;
+	list-style: none;
+	background: #88CD8D url('theme/images/submenu.gif') repeat-x left top;
+}
+ul#submenu li {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+ul#submenu a {
+	float: left;
+	margin: 5px 3px 0 0;
+	padding: 2px 10px;
+	border: 1px solid #56A261;
+	text-decoration: none;
+	border-bottom: none;
+	background: #53A860;
+	font-size: 90%;
+	color: white;
+	font-weight: bold;
+}
+ul#submenu a:hover {
+	background: #97DB9B;
+	color: #1F712F;
+}
+ul#submenu #tab-on-submenu a {
+	color: #333;
+	padding-bottom: 2px;
+	border-color: #727377;
+	background: #FFFF99;
+}
+/****************** Left Navigation *****************/
+div#leftcolumn {
+	margin: 0;
+	padding: 10px 0 8px 5px;
+	float: left;
+	text-align: left;
+	border-top: 1px solid #56A261;
+	background: #D7FFD7 url('theme/images/left_nav3.gif') repeat-y left top;
+	color: #141414;
+	width: 135px;
+}
+div#leftcolumn p#left-nav-title {
+	font-size: 110%;
+	font-weight: bold;
+	/*padding: 5px;*/
+	border: 1px solid #56A261;
+	margin: 10px 5px 10px 0;
+	background-color: #499655;
+	color: white;
+	text-align: center;
+}
+div#leftcolumn ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+div#leftcolumn li {
+	padding-bottom: 1px; /* for IE<7 */
+}
+div#leftcolumn a {
+	display: block;
+	margin: 4px 0px 0px 1px;
+	padding: 1px 0px 1px 2px;
+	color: white;
+	border: 1px solid #56A261;
+	text-decoration: none;
+	border-right: none;
+	background: #53A860;
+	font-size: 90%;
+	font-weight: bold;
+}
+div#leftcolumn a:hover {
+	background: #97DB9B;
+	color: #1F712F;
+}
+div#leftcolumn #tab-on-left a {
+	color: #333;
+	padding: 1px 0px 1px 2px;
+	background: #FFFF99;
+}
+/****************** Right Bar *****************/
+div#rightcolumn {
+	float: right;
+	margin: 0;
+	margin-top: 10px;
+	background-color: #D7FFD7;
+	color: #141414;
+	width: 127px;
+	text-align: center;	
+}
+
+div#rightcolumn a {
+    text-decoration: none;
+}
+
+div#support-us {
+    color: #FFFF66;
+    font-size: 105%;
+    font-weight: bold;
+    background-color: #499655;
+    border: 1px solid black;
+    margin: 5px 10px 15px 10px;
+    padding: 10px 0px 10px 0px;
+}
+
+div#support-us span#see-how {
+	font-size: 75%;
+    text-decoration: underline;
+}
+
+div#ads-text-link {
+    font-size: 65%;
+    text-decoration: underline;
+    text-align: left;
+    width: 120px;
+    border: 1px solid #56A261;
+    padding: 5px 0px 5px 5px;
+}
+
+/****************** Content *****************/
+
+div#content-wrap div#content {
+	padding: 6px 0%;
+	text-align: justify;
+	margin-right: 138px;
+	margin-left: 152px;
+	color: #212121;
+	/*border: 1px solid #56A261;*/
+}
+div#content p#page-title {
+	font-size: 130%;
+	font-weight: bold;
+	border: 1px solid #56A261;
+	margin: 0;
+	margin-bottom: 1%;
+	padding: 10px 20px;
+	background: #E9FCE9;
+}
+
+div#content blockquote#messages {
+    margin: 2% 5%;
+    padding: 1%;
+	color: blue;
+	border: 1px solid #b5b5b5;
+}
+
+div#content blockquote#systemMessages {
+    margin: 2% 5%;
+    padding: 1%;
+    color: red;
+    border: 1px solid #b5b5b5;
+}
+
+div#content blockquote#errors, div#content blockquote#pending-approval {
+    margin: 10px 5%;
+    padding: 1%;
+	color: red;
+	border: 1px solid #b5b5b5;
+}
+
+/* For IE 6 */
+* html div#mytable {
+	width: 99%;
+}
+
+/****************** Element Classes *********************/
+table {
+	width: 100%;
+	margin: 0 auto;
+	border: 1px solid #b5b5b5;
+}
+table caption {
+	margin:0;
+	padding: 8px 20px;
+	text-align: left;
+	border: 1px solid #b5b5b5;
+	border-bottom: none;
+	background:  #DCDBE6;
+	font-weight: bold;
+}
+table tfoot td {
+	border-top: 1px solid #b5b5b5;
+}
+table thead {
+	background-color: 	#C7C6D7;
+	text-align:center;	
+}
+table th {
+	margin: 0;
+	padding: 2px 5px;
+	border-bottom: 1px solid #b5b5b5;	
+}
+table td {
+	margin: 0;
+	padding: 2px 5px;
+	/*border-bottom: 1px solid #b5b5b5;*/
+}
+table tr.odd {
+	background-color:  white; /*#FFFFDF;*/
+}
+table tr.even {
+	background-color:   #E6E6E6;
+}
+/*
+table tr.odd:hover {
+   background-color: #FFFF99;   
+}
+table tr.even:hover {
+   background-color: #FFFF99;
+}*/
+/*
+table tr.odd:hover, table tr.even:hover  {
+    background-color:  #F2FCFF;
+    color: #003399;  
+    color: #FF0000;  
+}
+*/
+table tr.hilight-odd {
+    background-color:  white; /*#FFFFDF;*/
+}
+table tr.hilight-even {
+    background-color:   #E6E6E6;
+}
+
+table tr.hilight-odd:hover, table tr.hilight-even:hover  {
+    background: #C6ECFF; 
+}
+
+table tr.odd.selected, table tr.even.selected, table tr.hilight-odd.selected, table tr.hilight-even.selected {
+    background: #FFFFB3;
+}
+/********************************************************/
+/*              Single Column                           */
+/********************************************************/
+div#singleColumn {
+    min-height:450px;
+}
+
+/********************************************************/
+/*              Two Column                              */
+/********************************************************/
+div#twoColumn {
+    float: left;
+    width: 100%%;
+    padding-left: 20px;
+    
+  /*   margin: 0 0 0 155px */
+  /*  margin-top: -115px;*/
+}
+
+/********************************************************/
+/*              Edit Activities Specific                */
+/********************************************************/
+div#edit-activities-caption-header caption {
+	margin: 0;
+	padding: 2px
+}
+
+div#edit-activities-caption-header caption div {
+	margin: 0;
+	padding-bottom: 5px;	
+}
+
+div#float-right-save-cancel {
+	float:right;
+	background-color:#C7C6D7;
+	padding: 5px 5px 0 5px;
+}
+
+div#calculate {
+	background-color:#C7C6D7;
+	padding: 5px 5px 5px 5px;
+}
+
+div#copy-insert {
+    background-color:#DCDBE6;
+    padding: 5px 5px 5px 5px;
+}
+/********************************************************/
+/* Screen Shots                                         */
+/********************************************************/
+div#screen-shots-left-nav {
+	float: left;
+    width: 15%;
+    text-align: left;	
+}
+div#screen-shots-left-nav ul {
+    list-style: none;
+}
+
+div#screen-shots-left-nav ul li{
+    margin-left: -20px;
+}
+
+div#screen-shots-image {
+    float: right;
+    width: 82%;  
+    padding: 0;  
+    text-align: center;
+}
+
+/********************************************************/
+/* Public Sponsors                                      */
+/********************************************************/
+div#public-sponsors-left-nav{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+div#public-sponsors-content{
+    float: right;
+    width: 75%;  
+    padding-right: 40px;  
+    text-align: center;    
+}
+
+/********************************************************/
+/*              Switch User Specific                    */
+/********************************************************/
+fieldset#login {
+	margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+}
+
+fieldset#switch-user {
+	margin-left: auto;
+    margin-right: auto;	
+    width: 450px;
+}
+
+fieldset#switch-user table, fieldset#login table, fieldset#school-days table, fieldset#support table {
+    border: none;
+}
+
+fieldset#register {
+	margin-left: auto;
+    margin-right: auto;
+    padding: 0px 20px 10px 20px;
+    width: 600px;
+}
+
+fieldset#request-for-password {
+    margin-left: auto;
+    margin-right: auto;
+    width: 430px;
+}
+
+fieldset#support {
+    width: 625px;
+}
+
+fieldset#switch-user table, fieldset#login table, fieldset#register table, fieldset#request-for-password table {
+    border: none;
+}
+/** Calendar Month **/
+table#month caption {
+    font-size: 105%;
+}
+table#month thead {
+    font-weight: bold;
+}
+
+table#month td {
+    margin: 0;
+    padding: 2px 5px;
+    border-bottom: 1px solid #b5b5b5;
+    border-right: 1px solid #b5b5b5;
+}
+/****************** Video Tutorials **********************/
+fieldset#video-tutorials {
+	margin-left: auto;
+    margin-right: auto;
+    width: 580px;   
+}
+
+fieldset#video-tutorials ul {
+    list-style: none;
+}
+div#video-tutorial-right-wrap{
+	width: 80%;
+    float: right;
+}
+div#video-tutorial-right{
+	width: 25%;
+    float: right;
+    text-align: center;
+}
+div#video-tutorial-body{
+	width: 70%;
+    float: left;
+}    
+div#video-tutorial-left{
+	width: 20%;
+    float: left;
+    text-align: center;
+}
+.google-banner {
+    text-align: center;
+    clear: both;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/****************** Public *******************************/
+div#public-left {
+    float: left;
+    width: 15%;
+    margin-left: 2%;
+}
+div#public-left a{
+	padding-left: 10px;
+}
+div#public-right-wrapper {
+    float: right;
+    width: 80%;
+}
+div#public-center {
+    float: left;
+    width: 65%;
+    margin-right: 2%;
+}
+div#public-right {
+    float: right;
+    width: 28%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+fieldset#public-login {
+    font-size: 85%;
+}
+
+fieldset#public-login table {
+    width: 100%;
+    border: none;
+}
+
+
+/****************** Google ******************************/
+div#google-left-nav {
+	padding-left: 1px;
+}
+
+div#google-left-nav a {
+    background: #D7FFD7;
+    border-right: 1px solid #56A261;
+    border-left: 1px solid #D7FFD7;
+    border-top: 1px solid #D7FFD7;
+    border-bottom: 1px solid #D7FFD7;
+}
+
+div#google-left-nav a:hover {
+    background: #D7FFD7;
+    color: #1F712F;
+}
+div#google-left-nav #tab-on-left a {
+    color: #333;
+    padding: 1px 0px 1px 2px;
+    background: #D7FFD7;
+}
+
+/****************** Sponsors ******************************/
+table#sponsors {
+    
+}
+table#sponsors td {
+    padding: 10px;
+}
+/****************** School Calendar ******************************/
+ul#school-calendar-error {
+	margin-bottom: -20px;
+	margin-top: 10px;
+}
+
+/****************** Public Home  ******************************/
+span#news-date {
+    font-size: 70%;
+    position:relative;
+    top: -5px; 
+    left: -1px;
+}
+
+div#public-home-bottom-banner {
+    margin-top: 45px;
+    text-align: center;
+}
+
+/****************** Edit Activities  ******************************/
+td#edit-activities-course-name{
+   text-align: center;
+   margin: auto;
+   padding-bottom: 5px;
+   font-weight: bold;
+   font-size: 110%;
+}
+/****************** Transcript Year ******************************/
+table#transcriptYear a:link {
+    font-weight: normal;
+}
+
+table#transcriptYear a:visited {
+    font-weight: normal;
+    color: blue;
+}
+
+table#transcriptYear tr {
+    text-align: center;
+    font-weight: bold;
+}
+
+table#transcriptYear tr>td:first-child,table#transcriptYear tr>th:first-child
+    {
+    text-align: left;
+    padding-left: 3px;
+}
+
+.transcript-td-first-child {
+    text-align: left;
+    padding-left: 3px;
+    white-space: nowrap;
+}
+
+table#transcriptYear tr td .course-indention {
+    margin: 15px;
+}
+
+table#credits-gpa tr>td:first-child {
+    width: 40%;
+}
+
+table#credits-gpa tr>td:first-child,table#credits-gpa tr td {
+    text-align: right;
+}
+
+.transcript-value {
+    font-weight: normal;
+}
+
+.standatrd-width {
+    width: 50px;
+}
+
+.grading-scale-link {
+    font-size: 60%;
+}
+/****************** Hobby Log Report  *****************/
+td#hobby-log-report-show ul {
+    list-style-type: none;
+}
+
+td#hobby-log-report-show li {
+    float: left;
+    width: 33%;
+}
+
+/****************** Independent Classes *****************/
+.absent {
+	background-color:   #FFBD91;
+}
+.black {
+    color: black;
+}
+.boxed-notes {
+    margin: 2% 5%;
+    padding: 1%;
+    color: gray;
+    border: 1px solid #b5b5b5;
+}
+.calendar-day {
+   font-size:120%;
+}
+.center {
+    text-align: center;
+}
+.display-only-field {
+    color: gray;
+    font-style: italic;
+    text-align: center;
+}
+.download {
+    padding-left:80px;
+}
+
+.fieldtrip {
+    background-color:   #B4B48D;
+}
+.hide {
+    display: none;
+}
+.highlight {
+    background-color: #FFFF00;
+}
+.holiday {
+   background-color:   #E1C4FF;
+}
+.home-left-nav-header {
+	font-weight: bold;
+    padding: 0px 0px 3px 0px;
+}
+.italics{
+    font-style: italic;	
+}	
+.login-year-indicator {
+    color: gray;
+    font-style: italic;
+}
+.no-border{
+    border: none;
+}
+.normal {
+    font-weight: normal;
+}
+.notes, .notes a:link, .notes a:visited {
+   color:gray;
+}
+.nowrap {
+   white-space:nowrap;
+}
+.number {
+    text-align: right;
+}
+.required-text, .required-text a:link, .required-text a:visited {
+    color: red;
+}
+.select-width-450 {
+   width: 450px;
+}
+.select-width-200 {
+   width: 250px;
+}
+.spacer {
+   margin: 2px 0px 2px 0px;
+}
+.small-notes {
+   color:gray;
+   font-size: 80%;
+}
+.superscript-notes {
+	font-size: 70%;
+    position:relative;
+    top: -5px; 
+    left: -1px;
+    color: gray;
+}
+.superscript-notes-red  {
+    font-size: 70%;
+    position:relative;
+    top: -5px; 
+    left: -1px;
+    color: red;
+}
+.table-head-operation {
+    background: white;
+    font-weight: normal;
+    text-align: left;
+}
+.table-head-save {
+    background: white;
+    font-weight: normal;
+    text-align: right;
+}
+.table-noborder {
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+}
+.term {
+   background-color:   #9BD7FF;
+}
+.today {
+    background-color:   #FFFF99;
+}
+.selected{
+    background: #FFFF99;
+}
+.vacation {
+   background-color:   #BBFBBC;
+}
+.weekday {
+    background-color:  white; /*#FFFFDF;*/
+}
+.weekend {
+    background-color:   #E6E6E6;
+}
+
+/****************** Footer *****************/
+
+
+div#footer {
+	padding-bottom: 2%;
+	margin-bottom: -20px;
+	text-align: center;
+	clear: both;
+	color: #808080;	
+	background-color: white;
+}
+
+div#footer a:link, div#footer a:visited {
+    color: gray;
+}
+
+div#content-wrap div#footer {
+    border-top: solid #e0dfe3 1px;
+}
+	
+span#irt{
+   font-family:"Tiranti Solid LET";   
+   font-size: 150%;
+   font-weight: bold;
+   position: relative;
+   left: 1px; 
+}
+
+/** For IE<7, the filter does not work with IE6 **/
+* html body span#irt{
+   font-family: Verdana;
+   font-size: 100%;
+   font-weight: normal;
+   position: relative;
+   left: 0px; 	
+}
+</style>
+<!--  Local Java Script -->
+<script language="javascript" type="text/javascript"
+    src="js/homeschool-2011-10-01.js"></script> 
+
+<!--  Tool Tip -->
+<!--  Needs to be placed in immediately after the <body> that's why it is not here -->
+       
+<!--  Date Functions -->       
+<script type="text/javascript" src="js/date/date.js"></script> 
+       
+<!-- ************** jquery ***************** -->       
+<script type="text/javascript" src="js/jquery/jquery-1.3.2.js"></script>
+       
+<!--  Calendar -->
+<link rel="stylesheet" type="text/css" href="js/jquery/calendar/ui.datepicker-2008-08-15.css" />
+<script type="text/javascript" src="js/jquery/calendar/ui.datepicker.js"></script>  
+
+<!--  jquery UI: the datepicker does not work with Calendar -->
+<!--  script type="text/javascript" src="js/jquery/ui/jquery-ui-1.7.1.custom.min-complete.js"></script -->
+<script type="text/javascript" src="js/jquery/ui/jquery-ui-1.7.1.custom.min-no-datepicker.js"></script> 
+
+<!--  Table Drag and Drop -->
+<script type="text/javascript" src="js/jquery/tablednd/jquery.tablednd_0_5.js"></script> 
+
+<!--  JSON -->
+<script type="text/javascript" src="js/jquery/json/jquery.json-1.3.js"></script> 
+
+<script type="text/javascript">
+	
+</script>     
+</head>
+
+
+
+
+<body onkeydown="CheckKey(event);">
+<script type="text/javascript" src="js/tooltip/wz_tooltip.js"></script>
+<script language=javascript>
+<!--
+// Check key pressed on any page and if key
+// is ENTER submit the hidden element
+// with id equal to defaultSubmitAction. If
+// No defaultSubmitAction is provided then
+// do nothing.
+function CheckKey(e){
+   actionRef = document.getElementById("defaultSubmitAction");  
+   
+    var targ;
+    if (!e) {
+      var e = window.event;
+    }
+    if (e.target) {
+      targ = e.target;
+    }
+    else if (e.srcElement) {
+       targ = e.srcElement;
+    }
+    if (targ.nodeType == 3) {
+        // defeat Safari bug
+        targ = targ.id;
+    }    
+
+   if (targ.tagName != 'TEXTAREA' && actionRef != null){
+      return submitenter(actionRef.value,e);
+   }
+}
+
+// Submit a form with action = actionName
+function doSubmit(actionName)
+{  
+    varForm = document.getElementById("baseForm"); 
+	varForm.action = actionName+"#selected"; 
+	varForm.submit();  	  
+}
+
+// Submit a form when ENTER is hit
+function submitenter(actionName,e)
+{
+var keycode;
+if (window.event) keycode = window.event.keyCode;
+else if (e) keycode = e.which;
+else return true;
+
+if (keycode == 13)
+   {
+   doSubmit(actionName);
+   return false;
+   }
+else
+   return true;
+}
+-->
+</script>
+<div id="wrap-all"/>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" id="baseForm"
+	enctype="" method="post">
+
+
+   
+     <div id="content-wrap">
+	    <div id="inner-content-wrap">   
+   
+   
+         
+
+
+
+<!-- ****************** Header ***************** -->
+
+     
+     
+                            
+     
+
+<ul id="header">
+    <!-- Context -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="javascript"> 
+<!-- hide scripts from crusty old browsers -->
+    //
+    function goTo () {
+      enrollmentId = document.getElementById('enrollmentId').value
+	  document.location.href = "/HomeSchool/selectTeacherStudent.do?enrollmentId="+enrollmentId;
+	return false;
+    }
+
+</script>
+
+
+     
+     
+                            
+     
+
+
+	<li id="right-header">
+	<ul>
+		<li id="help-logout">
+		<ul>
+			<li><a href="/HomeSchool/displayHome.do">Home</a></li>	
+			<li><a href="javascript:;" onclick="openHelp();">Help</a></li>
+			<li><a href="javascript:;" onclick="openHelp('faq.htm','');">FAQ</a></li>
+			<li><a href="/HomeSchool/displayContactUs.do">Contact Us</a></li>
+			<li><a href="/HomeSchool/aboutUs.do">About Us</a></li>	
+					
+			<li><a href="/HomeSchool/logout.do">Logout</a></li>
+			
+		</ul>
+		</li>
+
+
+
+	
+		<li id="context">
+		<ul>
+			<li class="hide">This is the Context</li>
+			<li>School Year: <span id="year-name"> 2019-2020</span></li>			
+			<li>Teacher: Parth </li>
+			<li>Student: 
+			   
+				 				    
+					<SELECT name='enrollmentId' id='enrollmentId' onchange="goTo();"><OPTION value='96155' selected>Vrinda, 3</SELECT>		            
+				 
+				 
+			   
+			</li>
+			<li>Grade Level: 3rd Grade</li>
+		</ul>
+		</li>
+	
+	</ul>
+	</li>
+	<li id="application-name"><a href="/HomeSchool/displayHome.do">Homeschool Skedtrack <span id="trademark">TM</span></a></li>
+	<li id="tagline"><a href="/HomeSchool/displayHome.do">Lesson Scheduling and Tracking made easy</a></li>
+</ul>
+<!-- ****************** Menu ***************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="menu">    
+    <li id="switch-user"><a href="/HomeSchool/switchUser.do">Switch User</a></li> 
+    <li id="welcome">Welcome Parth! </li>   
+    
+       
+          
+          
+              
+          
+           
+	   <li id=""><a href="/HomeSchool/displaySchool.do">Admin</a></li>
+	 
+	<li id=""><a href="/HomeSchool/displayCoursesThatNeedTestInput.do">Reports</a></li>
+	<li id="tab-on-menu"><a href="/HomeSchool/displayCourses.do">Courses</a></li>
+	<li id=""><a href="/HomeSchool/displayTests.do">Tests</a></li>
+	<li id=""><a href="/HomeSchool/displayActivities.do">Activities</a></li>
+	<li id=""><a href="/HomeSchool/displayCurrentActivities.do">Today</a></li>
+	<li id=""><a href="/HomeSchool/displayHome.do">Home</a></li>
+</ul>
+
+<!-- ****************** Sub-Menu ***************** -->
+
+
+
+
+
+
+
+
+<ul id="submenu">
+  
+    <li id=""><a href="/HomeSchool/displayExport.do">Export</a></li>
+    <li id=""><a href="/HomeSchool/displayPublicCoursesFromFriends.do?isFriend=true">Import</a></li>
+	<li id="tab-on-submenu"><a href="/HomeSchool/displayDownloads.do">Downloads</a></li>
+	<li id=""><a href="/HomeSchool/displayCopy.do">Copy</a></li>
+	<li id=""><a href="/HomeSchool/displayCourseFieldTrips.do">Field Trips</a></li>
+	<li id=""><a href="/HomeSchool/displayCourseResources.do">Resources</a></li>
+	<li id=""><a href="/HomeSchool/displayCourseGroups.do">Course Groups</a></li>
+   	
+	<li id=""><a href="/HomeSchool/displayCourses.do">Display/Edit</a></li>
+</ul>
+
+<!-- ****************** Spacer ***************** -->
+<div style="clear: both; background: white; padding: 3px 0 3px 0">
+</div>
+<!-- ****************** Main Content ***************** -->
+
+    
+    
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+		<!-- ****************** Left Navigation ***************** -->
+		<div id="leftcolumn">
+			<ul>
+				<li>
+				<p id="left-nav-title">Downloads</p>
+				</li>
+		        
+
+
+
+
+
+
+
+    <li id="tab-on-left"><a href="/HomeSchool/displayDownloads.do">Downloads</a></li>
+
+				
+			</ul>	
+<BR>
+<div id="google-left-nav">
+    
+          <script type="text/javascript"><!--
+google_ad_client = "ca-pub-9178873833429062";
+/* HSkedtrack120x600Col3LeftNav */
+google_ad_slot = "2283945905";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>                 
+    
+</div>
+		</div>
+		<!-- ****************** Right Bar ***************** -->
+		<div id="rightcolumn">
+    
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9178873833429062";
+/* HSkedtrack120x600TextCol3RightNav */
+google_ad_slot = "7566494532";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+    
+    <br>
+<a href="/HomeSchool/displaySponsors.do"><div id="support-us">Support Us! <span id="see-how">Click here to see how...</span></div></a>				
+<p>
+<a href="http://www.christianbook.com/Christian/Books/home?event=AFF&amp;p=1140929" >
+<IMG SRC="https://g.christianbook.com/g/affiliate/small_banner/buynow2.gif" class="no-border" width="119px"/>
+</a>
+</p> 
+<!-- TODO fix the amazon https linke issue, looks like it is not secure  -->
+<!-- 
+<p>   
+<iframe src="https://rcm.amazon.com/e/cm?t=homescskedtr-20&o=1&p=20&l=ur1&category=books&banner=0YM0V4GHQ57EK3WYRZR2&internal=1&f=ifr" width="120" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+</p>
+ -->
+		</div>
+		<!-- ****************** Content ***************** -->
+        
+	       	      
+        
+
+
+
+
+
+
+
+
+
+
+
+		<!-- ****************** Content ***************** -->
+		<div id="content">		    
+		   <div id="allMessages">
+		    <!-- Page Title -->
+			<p id="page-title">Courses - Downloads</p>
+			<!-- Messages or Notes -->
+			<!-- TODO put in style sheet the formatting -->
+		    	
+		    
+			 		
+			
+			
+			</div> 
+			<!-- Place body here -->
+			    <div id="mytable">			    
+                
+                  
+                
+
+
+
+
+
+
+
+<script language="javascript"> 
+   function verifySelection() {
+      var inputTags = document.getElementsByTagName('input'); 
+      for( i = 0; i < inputTags.length; i++ ) {
+           if( inputTags[i].checked == true ){
+               return true;
+           }    
+      }
+      alert("Please select an item to download.");
+      return false;
+   }
+</script> 
+
+<span class="notes">Please see notes below for Microsoft Excel usage.</span>
+<table>
+	<tr>
+		<td><b>Course Downloads</b> (includes respective activities and tests)</td>
+	</tr>
+	<tr>
+		<td>
+		<table class="table-noborder">
+			<tr valign="top">
+				<td width="40%">
+				<table class="table-noborder">
+					
+						<tr>
+							<td class="download">
+								
+								
+									
+								
+							 <input type="radio" id="download"
+								name="download" value="20892167"
+								 />Math</td>
+						</tr>
+					
+						<tr>
+							<td class="download">
+								
+								
+									
+								
+							 <input type="radio" id="download"
+								name="download" value="21076847"
+								 />Science</td>
+						</tr>
+					
+				</table>
+				</td>
+				<td width="60%">
+				<table class="table-noborder">
+					
+						<tr>
+							<td>
+								
+								
+									
+								
+							 <input type="radio" id="download" value="4445614"
+								name="download"
+								 />Language_1</td>
+						</tr>
+					
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td><b>Other Downloads</b></td>
+	</tr>
+	<tr>
+		<td>
+		<table class="table-noborder">
+			<tr valign="top">
+				<td>
+				<table class="table-noborder">
+					<tr>
+						<td class="download">
+							
+							
+								
+							
+						 <input type="radio" id="download" name="download"
+							 value="hobbyLog"/>Hobby Log</td>
+					</tr>
+					<tr>
+						<td class="download">
+							
+							
+								
+							
+						 <input type="radio" id="download" name="download"
+							 value="fieldTrips"/>Field Trips</td>
+					</tr>
+					<tr>
+						<td class="download">
+							
+							
+								
+							
+						 <input type="radio" id="download" name="download"
+							 value="resources"/>Resources</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tfoot>
+		<tr>
+			<td align="right">			    
+			     
+			    
+				
+				
+				
+				
+			
+
+
+
+
+
+
+
+
+
+
+	<a href="javascript: doSubmit('download.do?fileType=csv')" onClick="return  verifySelection();"  	
+	><img
+		src="theme/images/download.gif" alt="Submit" border="0"/>
+	Download as CSV</a>
+
+ &nbsp;&nbsp;
+			     
+			    
+				
+				
+				
+				
+			
+
+
+
+
+
+
+
+
+
+
+	<a href="javascript: doSubmit('download.do?fileType=xls')" onClick="return  verifySelection();"  	
+	><img
+		src="theme/images/download.gif" alt="Submit" border="0"/>
+	Download as XLS</a>
+
+&nbsp;&nbsp;</td>
+		</tr>
+	</tfoot>
+</table>
+
+<blockquote class="boxed-notes">
+<b>Notes</b>: If you are opening the file in Microsoft Excel make sure that you auto-fit the column 
+width. To do this, in MS Excel, highlight the entire spreadsheet then go to 
+<b>Format->Column->AutoFit Selection</b>. Note also that when you save the file after modification 
+it will prompt you if you want to keep the workbook in its format, click <b>No</b> then click <b>Save</b> 
+to save the file and finally click <b>Yes</b> to override the existing file. 
+</blockquote>
+  
+        <p align="center">
+        <script type="text/javascript"><!--
+google_ad_client = "ca-pub-9178873833429062";
+/* HSkedtrack468x60Col3Bottom */
+google_ad_slot = "3584622799";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</p>                
+                </div>	
+                
+			<!-- End of main body  --></div>
+		<!-- end #content-->
+
+<!-- ****************** Footer ***************** -->
+
+
+
+
+
+<div id="footer">
+
+    
+    
+        
+    
+
+
+<table class="table-noborder ">
+	<tr>
+		<td><a href="/HomeSchool/displayHome.do">Home</a> | 
+		    <a href="/HomeSchool/privacyPolicy.do">Privacy Policy</a> | 
+		    <a href="/HomeSchool/termsOfService.do">Terms of Use</a> | 
+		    <a href="/HomeSchool/displayContactUs.do">Contact Us</a> | 
+		    <a href="/HomeSchool/aboutUs.do">About Us</a>  </td>
+	</tr>
+    <tr>
+        <td><a href="javascript:;" onclick="openHelp();">Help</a> | 
+            <a href="javascript:;" onclick="openHelp('faq.htm','');">FAQ</a> | 
+            <a href="javascript: openForum();">Forum</a> | 
+            <a href="/HomeSchool/screenShot.do?screenName=today-77.png">Screen Shots</a> | 
+            <a href="/wordpress">HS Blog</a> | 
+            <a href="javascript: openForum('/viewforum.php?f=13&sid=a920d8fc81c7da491d6fd20c12260054');">New Features</a> |
+            <a href="/HomeSchool/videoTutorials.do">Video Tutorials</a>  </td>
+    </tr>	
+	<tr>
+		<td>&#169; 2007-2020 iRT Web Solutions, LLC. All Rights Reserved.
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+
+</div>
+
+
+   
+      <!-- end #inner-content-wrap-->
+        </div>
+      <!-- end #content-wrap-->
+	  </div>   
+   
+   
+         
+
+
+</form>
+</div>
+<!-- Google Anaylitics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4672284-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+
+</html>
