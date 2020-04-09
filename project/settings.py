@@ -164,3 +164,8 @@ WAFFLE_FLAG_MODEL = "core.Flag"
 WAFFLE_CREATE_MISSING_FLAGS = True
 
 django_heroku.settings(locals(), secret_key=False)
+
+GRAPH_MODELS = {
+    'all_applications':True,
+    'group_models':True,
+}
