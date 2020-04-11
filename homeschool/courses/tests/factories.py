@@ -2,7 +2,7 @@ import factory
 
 
 class CourseFactory(factory.django.DjangoModelFactory):
-	class Meta:
+    class Meta:
         model = "courses.Course"
 
     name = factory.Sequence(lambda n: f"Course {n}")
@@ -17,3 +17,4 @@ class CourseTaskFactory(factory.django.DjangoModelFactory):
 
     course = factory.SubFactory(CourseFactory)
     description = factory.Faker("sentence")
+    duration = factory.Faker("pyint", min_value=0, max_value=60)

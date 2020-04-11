@@ -1,3 +1,4 @@
+
 import uuid
 
 from homeschool.courses.tests.factories import CourseFactory, CourseTaskFactory
@@ -50,3 +51,9 @@ class TestCourseTask(TestCase):
         task = CourseTaskFactory(description=description)
 
         self.assertEqual(task.description, description)
+
+    def test_has_duration(self):
+        duration = 30
+        task = CourseTaskFactory(duration=duration)
+
+        self.assertEqual(task.duration, duration)
