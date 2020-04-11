@@ -13,3 +13,8 @@ class Student(models.Model):
 
     def __str__(self):
         return self.full_name
+
+class Enrollment(models.Model):
+    """ The association between a student and grade level """
+    student = models.ForeignKey(Student,on_delete=models.CASCADE)
+    grade_level = models.ForeignKey("schools.GradeLevel", on_delete=models.CASCADE)
