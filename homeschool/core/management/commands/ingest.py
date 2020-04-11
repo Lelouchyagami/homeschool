@@ -108,3 +108,4 @@ class Command(BaseCommand):
                         student=student,
                         course_task=course_task,
                         completed_date=completed_date,
+                    )
