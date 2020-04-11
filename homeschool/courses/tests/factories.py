@@ -1,20 +1,32 @@
 import factory
+from django.utils import timezone
 
 
-class CourseFactory(factory.django.DjangoModelFactory):
+class StudentFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = "courses.Course"
+        model = "students.Student"
 
-    name = factory.Sequence(lambda n: f"Course {n}")
+    school = factory.SubFactory("homeschool.schools.tests.factories.SchoolFactory")
+    first_name = factory.Faker("first_name")
+    last_name = factory.Faker("last_name")
+
+
+class EnrollmentFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = "students.Enrollment"
+
+    student = factory.SubFactory(StudentFactory)
     grade_level = factory.SubFactory(
         "homeschool.schools.tests.factories.GradeLevelFactory"
     )
 
 
-class CourseTaskFactory(factory.django.DjangoModelFactory):
+class CourseworkFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = "courses.CourseTask"
+        model = "students.Coursework"
 
-    course = factory.SubFactory(CourseFactory)
-    description = factory.Faker("sentence")
-    duration = factory.Faker("pyint", min_value=0, max_value=60)
+    student = factory.SubFactory(StudentFactory)
+    course_task = factory.SubFactory(
+        "homeschool.courses.tests.factories.CourseTaskFactory"
+    )
+    completed_date = factory.LazyFunction(lambda: timezone.now().date())
