@@ -1,91 +1,65 @@
-import datetime
+import uuid
 
-from homeschool.courses.tests.factories import CourseTaskFactory
-from homeschool.schools.tests.factories import GradeLevelFactory, SchoolFactory
-from homeschool.students.tests.factories import (
-    CourseworkFactory,
-    EnrollmentFactory,
-    StudentFactory,
-)
+from homeschool.courses.models import Course
+from homeschool.courses.tests.factories import CourseFactory, CourseTaskFactory
+from homeschool.schools.tests.factories import GradeLevelFactory
 from homeschool.test import TestCase
 
 
-class TestStudent(TestCase):
+class TestCourse(TestCase):
     def test_factory(self):
-        student = StudentFactory()
+        course = CourseFactory()
 
-        self.assertIsNotNone(student)
-        self.assertNotEqual(student.first_name, "")
-        self.assertNotEqual(student.last_name, "")
+        self.assertIsNotNone(course)
+        self.assertNotEqual(course.name, "")
 
-    def test_has_school(self):
-        school = SchoolFactory()
-        student = StudentFactory(school=school)
+    def test_has_name(self):
+        name = "Calculus I"
+        course = CourseFactory(name=name)
 
-        self.assertEqual(student.school, school)
-
-    def test_has_first_name(self):
-        first_name = "James"
-        student = StudentFactory(first_name=first_name)
-
-        self.assertEqual(student.first_name, first_name)
-
-    def test_has_last_name(self):
-        last_name = "Bond"
-        student = StudentFactory(last_name=last_name)
-
-        self.assertEqual(student.last_name, last_name)
-
-    def test_full_name(self):
-        student = StudentFactory()
-
-        self.assertEqual(student.full_name, f"{student.first_name} {student.last_name}")
-
-    def test_str(self):
-        student = StudentFactory()
-
-        self.assertEqual(str(student), student.full_name)
-
-
-class TestEnrollment(TestCase):
-    def test_factory(self):
-        enrollment = EnrollmentFactory()
-
-        self.assertIsNotNone(enrollment)
-
-    def test_has_student(self):
-        student = StudentFactory()
-        enrollment = EnrollmentFactory(student=student)
-
-        self.assertEqual(enrollment.student, student)
+        self.assertEqual(course.name, name)
 
     def test_has_grade_level(self):
         grade_level = GradeLevelFactory()
-        enrollment = EnrollmentFactory(grade_level=grade_level)
+        course = CourseFactory(grade_level=grade_level)
 
-        self.assertEqual(enrollment.grade_level, grade_level)
+        self.assertEqual(course.grade_level, grade_level)
+
+    def test_has_days_of_week(self):
+        days_of_week = Course.MONDAY + Course.TUESDAY
+        school_year = CourseFactory(days_of_week=days_of_week)
+
+        self.assertEqual(school_year.days_of_week, days_of_week)
 
 
-class TestCoursework(TestCase):
+class TestCourseTask(TestCase):
     def test_factory(self):
-        coursework = CourseworkFactory()
+        task = CourseTaskFactory()
 
-        self.assertIsNotNone(coursework)
+        self.assertIsNotNone(task)
+        self.assertNotEqual(str(task.uuid), "")
+        self.assertNotEqual(task.description, "")
 
-    def test_has_student(self):
-        student = StudentFactory()
-        coursework = CourseworkFactory(student=student)
+    def test_has_course(self):
+        course = CourseFactory()
+        task = CourseTaskFactory(course=course)
 
-        self.assertEqual(coursework.student, student)
+        self.assertEqual(task.course, course)
 
-    def test_has_course_task(self):
-        course_task = CourseTaskFactory()
-        coursework = CourseworkFactory(course_task=course_task)
+    def test_has_uuid(self):
+        task_uuid = uuid.uuid4()
+        task = CourseTaskFactory(uuid=task_uuid)
 
-        self.assertEqual(coursework.course_task, course_task)
+        self.assertEqual(task.uuid, task_uuid)
 
-    def test_completed_date(self):
-        completed_date = datetime.date.today()
-        coursework = CourseworkFactory(completed_date=completed_date)
+    def test_has_description(self):
+        description = "Chapter 1 from SICP"
+        task = CourseTaskFactory(description=description)
 
-        self.assertEqual(coursework.completed_date, completed_date)
+        self.assertEqual(task.description, description)
+
+    def test_has_duration(self):
+        duration = 30
+        task = CourseTaskFactory(duration=duration)
+
+        self.assertEqual(task.duration, duration)
