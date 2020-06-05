@@ -17,10 +17,12 @@ class Student(models.Model):
 class Enrollment(models.Model):
     """ The association between a student and grade level """
     student = models.ForeignKey(Student,on_delete=models.CASCADE)
-    grade_level = models.ForeignKey("schools.GradeLevel", on_delete=models.CASCADE)
+    grade_level = models.ForeignKey("schools.GradeLevel", on_delete=models.CASCADE , related_name="students")
 
 class Coursework(models.Model):
     """The work that student completes for course tasks"""
+    class Meta:
+        verbose_name_plural = "coursework"
     student = models.ForeignKey(Student,on_delete=models.CASCADE)
     course_task = models.ForeignKey("courses.CourseTask",on_delete=models.CASCADE)
     completed_date = models.DateField(db_index=True)
