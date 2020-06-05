@@ -17,11 +17,11 @@ class School(models.Model):
         help_text="The school administrator",
     )
 
-    @receiver(post_save,sender=User)
-    def create_school(sender, instance, created, **kwargs):
-        """A new user gets an associated school."""
-        if created:
-            School.objects.create(admin=instance)
+@receiver(post_save,sender=User)
+def create_school(sender, instance, created, **kwargs):
+    """A new user gets an associated school."""
+    if created:
+        School.objects.create(admin=instance)
 
 
 class SchoolYear(DaysOfWeekModel):
