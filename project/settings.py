@@ -34,7 +34,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #Django 
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -42,21 +41,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-    "django_extensions",
-    
-
-    #third party
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "django_extensions",
     "waffle",
-
-    #local
     "homeschool.core",
-    "homeschool.schools",
     "homeschool.courses",
+    "homeschool.schools",
+    "homeschool.students",
     "homeschool.users",
-    "homeschool.students"
 ]
 
 MIDDLEWARE = [
@@ -159,16 +153,10 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_LOGOUT_REDIRECT_URL = "core:index"
-ACCOUN_USER_DISPLAY = lambda user : user.email
+ACCOUNT_USER_DISPLAY = lambda user: user.email  # noqa
 
 # django-waffle
 WAFFLE_FLAG_MODEL = "core.Flag"
 WAFFLE_CREATE_MISSING_FLAGS = True
 
 django_heroku.settings(locals(), secret_key=False)
-
-#GRAPH-VIZ -> To genetate ERD
-GRAPH_MODELS = {
-    'all_applications':True,
-    'group_models':True,
-}
