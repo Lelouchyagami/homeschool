@@ -1,4 +1,3 @@
-
 from dateutil.relativedelta import MO, SU, relativedelta
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
@@ -54,33 +53,13 @@ class AppView(LoginRequiredMixin, TemplateView):
 
         for student in self.request.user.school.students.all():
             courses = student.get_courses(school_year)
-            week_coursework = self.get_student_week_coursework(student, courses, week)
+            week_coursework = student.get_week_coursework(week)
             schedule = self.get_student_schedule(
                 student, week_dates, courses, week_coursework
             )
             schedules.append(schedule)
 
         return schedules
-
-    def get_student_week_coursework(self, student, courses, week):
-        """Get the student's week coursework in dict for fast lookup."""
-        week_coursework = {}
-        coursework_qs = Coursework.objects.filter(
-            student=student, course_task__course__in=courses, completed_date__range=week
-        ).select_related("course_task")
-        for coursework in coursework_qs:
-            course_id = coursework.course_task.course_id
-            if course_id not in week_coursework:
-                week_coursework[course_id] = {}
-
-            if coursework.completed_date not in week_coursework[course_id]:
-                # It's possible for multiple coursework items to share the same
-                # completion day because that's controlled by user input.
-                week_coursework[course_id][coursework.completed_date] = []
-
-            week_coursework[course_id][coursework.completed_date].append(coursework)
-
-        return week_coursework
 
     def get_student_schedule(self, student, week_dates, courses, week_coursework):
         """Get the schedule.
@@ -117,5 +96,69 @@ class AppView(LoginRequiredMixin, TemplateView):
                 elif course.runs_on(week_date) and course_tasks:
                     course_schedule_item["task"] = course_tasks.pop()
                 course_schedule["days"].append(course_schedule_item)
+            schedule["courses"].append(course_schedule)
+        return schedule
+
+
+class DailyView(LoginRequiredMixin, TemplateView):
+    template_name = "core/daily.html"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        # This is UTC so it is not localized to the user's timezone.
+        # That may lead to funny results in the evening.
+        today = timezone.now().date()
+        context["day"] = today
+
+        school_year = (
+            SchoolYear.objects.filter(start_date__lte=today, end_date__gte=today)
+            .prefetch_related("grade_levels", "grade_levels__courses")
+            .first()
+        )
+
+        context["schedules"] = self.get_schedules(school_year, today)
+        return context
+
+    def get_schedules(self, school_year, day):
+        """Get the schedules for each student."""
+        schedules = []
+        if not school_year:
+            return schedules
+
+        if not school_year.runs_on(day):
+            return schedules
+
+        for student in self.request.user.school.students.all():
+            courses = student.get_courses(school_year)
+            schedule = self.get_student_schedule(student, day, courses)
+            schedules.append(schedule)
+
+        return schedules
+
+    def get_student_schedule(self, student, day, courses):
+        """Get the daily schedule for the student."""
+        day_coursework = student.get_day_coursework(day)
+        completed_task_ids = list(
+            Coursework.objects.filter(
+                student=student, course_task__course__in=courses
+            ).values_list("course_task_id", flat=True)
+        )
+        schedule = {"student": student, "courses": []}
+        for course in courses:
+            course_schedule = {"course": course}
+            if course.id in day_coursework:
+                course_schedule["coursework"] = day_coursework[course.id]
+            elif course.runs_on(day):
+                # Doing this query in a loop is definitely an N+1 bug.
+                # If it's possible to do a single query of all tasks
+                # that groups by course then that would be better.
+                # No need to over-optimize until that's a real issue.
+                # I brought this up on the forum. It doesn't look like it's easy to fix.
+                # https://forum.djangoproject.com/t/grouping-by-foreignkey-with-a-limit-per-group/979
+                course_task = course.course_tasks.exclude(
+                    id__in=completed_task_ids
+                ).first()
+                course_schedule["task"] = course_task
             schedule["courses"].append(course_schedule)
         return schedule
