@@ -9,13 +9,14 @@
 <body class="min-h-screen flex flex-col">
 
   {% include "nav.html" %}
-  {% block sub_nav %}{% endblock %}
+  {% include "sub_nav.html" %}
+
   <main class="container mx-auto p-8 flex-grow">
     {% block main %}{% endblock %}
   </main>
 
   <footer class="container mx-auto border-t border-gray-400 p-4 text-center text-sm text-gray-600">
-    <span class="mx-1">&copy; {% now "Y" %} Parth Agarwal</span>
+    <span class="mx-1">&copy; {% now "Y" %} Matt Layman</span>
     <a href="#" class="mx-1 hover:text-gray-900">About</a>
     <a href="#" class="mx-1 hover:text-gray-900">Terms</a>
     <a href="#" class="mx-1 hover:text-gray-900">Privacy</a>
