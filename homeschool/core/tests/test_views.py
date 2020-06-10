@@ -9,6 +9,7 @@ from homeschool.courses.models import Course
 from homeschool.courses.tests.factories import CourseFactory, CourseTaskFactory
 from homeschool.schools.models import SchoolYear
 from homeschool.schools.tests.factories import GradeLevelFactory, SchoolYearFactory
+from homeschool.students.models import Coursework
 from homeschool.students.tests.factories import (
     CourseworkFactory,
     EnrollmentFactory,
@@ -258,3 +259,92 @@ class TestDaily(TestCase):
             ],
         }
         self.assertContext("schedules", [expected_schedule])
+
+    def test_specific_day(self):
+        user = self.make_user()
+        day = datetime.date(2020, 1, 20)
+
+        with self.login(user):
+            self.get("core:daily_for_date", year=day.year, month=day.month, day=day.day)
+
+        self.assertContext("day", day)
+
+    def test_surrounding_dates_no_school_year(self):
+        user = self.make_user()
+        today = timezone.now().date()
+
+        with self.login(user):
+            self.get("core:daily")
+
+        self.assertContext("ereyesterday", today - datetime.timedelta(days=2))
+        self.assertContext("yesterday", today - datetime.timedelta(days=1))
+        self.assertContext("tomorrow", today + datetime.timedelta(days=1))
+        self.assertContext("overmorrow", today + datetime.timedelta(days=2))
+
+    @mock.patch("homeschool.core.views.timezone")
+    def test_surrounding_dates(self, timezone):
+        now = datetime.datetime(2020, 1, 22, tzinfo=pytz.utc)
+        wednesday = now.date()
+        timezone.now.return_value = now
+        user = self.make_user()
+        SchoolYearFactory(
+            school=user.school,
+            start_date=wednesday - datetime.timedelta(days=90),
+            end_date=wednesday + datetime.timedelta(days=90),
+            days_of_week=SchoolYear.TUESDAY
+            + SchoolYear.WEDNESDAY
+            + SchoolYear.THURSDAY,
+        )
+
+        with self.login(user):
+            self.get("core:daily")
+
+        previous_thursday = wednesday - datetime.timedelta(days=6)
+        self.assertContext("ereyesterday", previous_thursday)
+        self.assertContext("yesterday", wednesday - datetime.timedelta(days=1))
+        self.assertContext("tomorrow", wednesday + datetime.timedelta(days=1))
+        next_tuesday = wednesday + datetime.timedelta(days=6)
+        self.assertContext("overmorrow", next_tuesday)
+
+    def test_complete_daily(self):
+        today = timezone.now().date()
+        user = self.make_user()
+        student = StudentFactory(school=user.school)
+        school_year = SchoolYearFactory(school=user.school)
+        grade_level = GradeLevelFactory(school_year=school_year)
+        course = CourseFactory(grade_level=grade_level)
+        task = CourseTaskFactory(course=course)
+        data = {
+            "completed_date": "{:%Y-%m-%d}".format(today),
+            f"task-{student.id}-{task.id}": "on",
+        }
+
+        with self.login(user):
+            self.post("core:daily", data=data)
+
+        self.assertTrue(
+            Coursework.objects.filter(
+                student=student, course_task=task, completed_date=today
+            ).exists()
+        )
+
+    def test_incomplete_daily(self):
+        today = timezone.now().date()
+        user = self.make_user()
+        student = StudentFactory(school=user.school)
+        school_year = SchoolYearFactory(school=user.school)
+        grade_level = GradeLevelFactory(school_year=school_year)
+        course = CourseFactory(grade_level=grade_level)
+        task = CourseTaskFactory(course=course)
+        CourseworkFactory(student=student, course_task=task)
+        data = {
+            "completed_date": "{:%Y-%m-%d}".format(today),
+            f"task-{student.id}-{task.id}": "off",
+        }
+
+        with self.login(user):
+            self.post("core:daily", data=data)
+
+        self.assertFalse(
+            Coursework.objects.filter(student=student, course_task=task).exists()
+        )
