@@ -19,7 +19,8 @@ from django.urls import include, path
 urlpatterns = [
     path("", include("homeschool.core.urls")),
     path("courses/", include("homeschool.courses.urls")),
-    path("admin/", admin.site.urls),
+    path("office/", admin.site.urls),
+    path("students/", include("homeschool.students.urls")),
     path("accounts/", include("allauth.urls")),
 ]
 

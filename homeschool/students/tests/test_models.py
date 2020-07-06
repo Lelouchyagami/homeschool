@@ -1,5 +1,6 @@
 
 import datetime
+import uuid
 
 from dateutil.relativedelta import MO, SU, relativedelta
 from django.utils import timezone
@@ -39,6 +40,12 @@ class TestStudent(TestCase):
         student = StudentFactory(last_name=last_name)
 
         self.assertEqual(student.last_name, last_name)
+
+    def test_has_uuid(self):
+        student_uuid = uuid.uuid4()
+        student = CourseFactory(uuid=student_uuid)
+
+        self.assertEqual(student.uuid, student_uuid)
 
     def test_full_name(self):
         student = StudentFactory()
@@ -106,6 +113,7 @@ class TestStudent(TestCase):
         day_coursework = student.get_day_coursework(monday)
 
         self.assertEqual(day_coursework, {course.id: [coursework_1, coursework_2]})
+
 
 class TestEnrollment(TestCase):
     def test_factory(self):
